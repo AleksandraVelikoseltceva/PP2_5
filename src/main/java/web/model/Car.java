@@ -27,11 +27,11 @@ public class Car {
         this.model = model;
     }
 
-    public int getColor() {
+    public int getSeries) {
         return series;
     }
 
-    public void setColor(int series) {
+    public void setSeries(int series) {
         this.series = series;
     }
 
