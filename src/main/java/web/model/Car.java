@@ -27,7 +27,7 @@ public class Car {
         this.model = model;
     }
 
-    public int getSeries) {
+    public int getSeries() {
         return series;
     }
 
