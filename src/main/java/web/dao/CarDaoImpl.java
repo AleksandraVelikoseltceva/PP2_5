@@ -5,23 +5,24 @@ import web.model.Car;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.stream.Collectors;
 @Repository
 public class CarDaoImpl implements CarDao {
-    private static final List <Car> cars = new ArrayList<>();
+    private static final List<Car> carList = new ArrayList<>();
 
-    {
-        cars.add(new Car(1, "model1", 1));
-        cars.add(new Car(2, "model2", 2));
-        cars.add(new Car(3, "model3", 3));
-        cars.add(new Car(4, "model4", 4));
-        cars.add(new Car(5, "model5", 5));
+    static {
+        carList.add(new Car(1, "model1", 1));
+        carList.add(new Car(2, "model2", 2));
+        carList.add(new Car(3, "model3", 3));
+        carList.add(new Car(4, "model4", 4));
+        carList.add(new Car(5, "model5", 5));
     }
     @Override
-    public List <Car> getCars (Integer count) {
-        if (count == null || count <0 || count > cars.size()) {
-            count = cars.size();
+    public List<Car> getCars(Integer count) {
+        if (count == 0) {
+            return carList;
         }
-        return cars.stream().limit(count).toList();
+
+        return carList.stream().limit(count).collect(Collectors.toList());
     }
 }
